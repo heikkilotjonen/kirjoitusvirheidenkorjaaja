@@ -4,13 +4,13 @@ from distance import dl_distance
 class SpellChecker:
     def __init__(self):
         self.trie = Trie()
-        self.dl_distance = dl_distance
+        self.dl_distance = dl_distance              
     
-    def load_dictionary(self, word_list):
+    def load_dictionary(self, word_list):           # Lataa sanalista trie-rakenteeseen
         for word in word_list:
             self.trie.insert(word)
     
-    def is_correct(self, word):
+    def is_correct(self, word):                     # Tarkistaa onko sana oikein kirjoitettu
         return self.trie.search(word)
     
     
