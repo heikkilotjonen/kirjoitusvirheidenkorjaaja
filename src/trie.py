@@ -9,7 +9,7 @@ class Trie:
 
     def insert(self, word):                         # Lisää sana trie:hen
         node = self.root
-        for char in word:                           # Käy läpi sanan merkit
+        for char in word.lower():                   # Käy läpi sanan merkit
             if char not in node.children:           # Jos merkki ei ole lapsissa, luodaan uusi solmu
                 node.children[char] = TrieNode()
             node = node.children[char]              # Siirrytään seuraavaan solmuun
@@ -17,16 +17,8 @@ class Trie:
 
     def search(self, word):                         # Tarkistaa, onko trie:ssä sana
         node = self.root
-        for char in word:                           # Käy läpi sanan merkit
+        for char in word.lower():                   # Käy läpi sanan merkit
             if char not in node.children:           # Jos merkki ei ole lapsissa, palautetaan False
                 return False
             node = node.children[char]              # Siirrytään seuraavaan solmuun
         return node.is_word
-
-    def starts_with(self, prefix):                  # Tarkistaa, onko trie:ssä sana, joka alkaa etuliitteellä
-        node = self.root
-        for char in prefix:                         # Käy läpi etuliitteen merkit
-            if char not in node.children:           # Jos merkki ei ole lapsissa, palautetaan False
-                return False    
-            node = node.children[char]              # Siirrytään seuraavaan solmuun
-        return True

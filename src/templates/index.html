@@ -1,0 +1,29 @@
+<html>
+<head>
+  <title>Kirjoitusvirheidenkorjaaja</title>
+  <link rel="stylesheet" href="/static/main.css">
+</head>
+
+<body>
+  <div class="header">
+    <h1>Kirjoitusvirheidenkorjaaja</h1>
+  </div>
+
+
+Kirjoita sanoja:
+ <form action="{{ url_for('spellcheck') }}" method="post">
+ <textarea name="text" rows="5" cols="40" maxlength="5000"></textarea>
+  <input type="submit" value="Lähetä" />
+ </form>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+</body>

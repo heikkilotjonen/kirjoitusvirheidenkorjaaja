@@ -1,0 +1,19 @@
+body {
+  max-width: 50em;
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0 auto;
+  background-color: cornsilk;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.header {
+  background-color: cornsilk;
+  color: black;
+  font-weight: bold;
+  padding: 1em;
+  margin: 0.5em 0;
+  text-align: center;
+  font-family: coda caption;
+}
