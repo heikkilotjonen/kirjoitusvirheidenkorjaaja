@@ -18,4 +18,7 @@ def spellcheck():
         return redirect(url_for('index'))
     else:
         flash('Sana on väärin kirjoitettu.')
+        suggestions = spell_checker.suggest(text)
+        if suggestions:
+            flash('Ehdotuksia: ' + ', '.join(suggestions))
         return redirect(url_for('index'))
