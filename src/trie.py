@@ -3,6 +3,7 @@ class TrieNode:
         self.children = {}
         self.is_word = False
 
+
 class Trie:
     def __init__(self):
         self.root = TrieNode()
@@ -12,7 +13,8 @@ class Trie:
         for char in word.lower():                   # Käy läpi sanan merkit
             if char not in node.children:           # Jos merkki ei ole lapsissa, luodaan uusi solmu
                 node.children[char] = TrieNode()
-            node = node.children[char]              # Siirrytään seuraavaan solmuun
+            # Siirrytään seuraavaan solmuun
+            node = node.children[char]
         node.is_word = True
 
     def search(self, word):                         # Tarkistaa, onko trie:ssä sana
@@ -20,7 +22,8 @@ class Trie:
         for char in word.lower():                   # Käy läpi sanan merkit
             if char not in node.children:           # Jos merkki ei ole lapsissa, palautetaan False
                 return False
-            node = node.children[char]              # Siirrytään seuraavaan solmuun
+            # Siirrytään seuraavaan solmuun
+            node = node.children[char]
         return node.is_word
 
     def get_all_words(self, prefix=""):             # Hakee kaikki trie:ssä olevat sanat
@@ -28,9 +31,11 @@ class Trie:
         for char in prefix.lower():                 # Käy läpi etuliitteen merkit
             if char not in node.children:
                 return []
-            node = node.children[char]              # Siirrytään seuraavaan solmuun
+            # Siirrytään seuraavaan solmuun
+            node = node.children[char]
         results = []
-        self._dfs(node, prefix.lower(), results)    # Syvyyssuuntainen haku trie:ssä
+        # Syvyyssuuntainen haku trie:ssä
+        self._dfs(node, prefix.lower(), results)
         return results
 
     def _dfs(self, node, prefix, results):          # Apumetodi syvyyssuuntaiseen hakuun

@@ -1,10 +1,11 @@
 import unittest
 from spellcheck import SpellChecker
 
+
 class TestSpellChecker(unittest.TestCase):
     def setUp(self):
         self.spell_checker = SpellChecker()
-    
+
     def test_load_dictionary(self):
         self.spell_checker.load_dictionary(['testi', 'sana', 'kissa', 'koira'])
         self.assertTrue(self.spell_checker.is_correct('testi'))

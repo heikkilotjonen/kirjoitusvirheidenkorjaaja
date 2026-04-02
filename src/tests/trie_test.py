@@ -1,6 +1,7 @@
 import unittest
 from trie import Trie
 
+
 class TestTrie(unittest.TestCase):
     def setUp(self):
         self.trie = Trie()
@@ -28,7 +29,7 @@ class TestTrie(unittest.TestCase):
     def test_get_all_words_with_nonexistent_prefix(self):
         self.trie.insert('testi')
         self.trie.insert('sana')
-        words = self.trie.get_all_words('xyz') 
+        words = self.trie.get_all_words('xyz')
         self.assertEqual(words, [])
 
     def test_get_all_words_with_valid_prefix(self):

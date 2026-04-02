@@ -17,14 +17,24 @@ def index():
 @app.route('/spellcheck', methods=["POST"])
 def spellcheck():
     # Sanoja vertaillaan pienillä kirjaimilla helppottakseen vertailua
-    text = request.form['text'].strip().lower()
-    if spell_checker.is_correct(text):
-        flash('Sana on oikein kirjoitettu.')
+    text = request.form.get('text').strip().lower()
+    # Tallennetaan alkuperäinen teksti flash-viestejä varten
+    original_text = text
+    # Jaetaan teksti sanoiksi
+    text = text.split()
+    if not text:
+        flash('Anna tarkistettava sana tai lause.')
         return redirect(url_for('index'))
-    else:
-        flash('Sana on väärin kirjoitettu.')
-        # Jos sana on väärin kirjoitettu, haetaan ehdotuksia korjauksiksi
-        suggestions = spell_checker.suggest(text)
-        if suggestions:
-            flash('Ehdotuksia: ' + ', '.join(suggestions))
-        return redirect(url_for('index'))
+
+    flash(f'Tarkistetaan teksti: "{original_text}"')
+
+    for word in text:
+        if not spell_checker.is_correct(word):
+            flash(f'Sana "{word}" on väärin kirjoitettu.')
+            suggestions = spell_checker.suggest(word)
+            if suggestions:
+                flash(
+                    f'Ehdotuksia sanalle "{word}": ' + ', '.join(suggestions))
+        else:
+            flash(f'Sana "{word}" on oikein kirjoitettu.')
+    return redirect(url_for('index'))
