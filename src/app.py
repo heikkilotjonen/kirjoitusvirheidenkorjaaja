@@ -6,7 +6,8 @@ app = Flask(__name__)
 app.secret_key = 'salainen'
 spell_checker = SpellChecker()
 # SpellChecker-luokkaan ladataan sanoja tarkistusta varten
-spell_checker.load_dictionary(['testi', 'sana', 'kissa', 'koira', 'markka'])
+spell_checker.load_dictionary(['testi', 'testit', 'sana', 'kissa', 'kissan', 'kissat', 'koira'])
+spell_checker.load_dictionary_from_file('sanakirja\\kaikkisanat.txt')  # Lataa sanalista tiedostosta
 
 
 @app.route('/')
