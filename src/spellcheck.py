@@ -11,7 +11,7 @@ class SpellChecker:
     def load_dictionary(self, word_list):
         for word in word_list:
             self.trie.insert(word)
-    
+
     # Lataa sanalista tiedostosta trie-rakenteeseen
     def load_dictionary_from_file(self, file_path):
         with open(file_path, 'r', encoding='utf-8') as file:

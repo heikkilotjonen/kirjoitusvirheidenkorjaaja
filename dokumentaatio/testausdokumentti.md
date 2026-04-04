@@ -38,27 +38,20 @@ Metodi search testataan syöttämällä sana trie:hen ja etsimällä se ja toine
 
 Metodi get\_all\_words testataan erikseen ilman etuliitettä, sekä väärällä ja oikealla etuliitteellä. Trie:hen syötetään sanoja ja niitä etsitään etuliitteen kanssa ja ilman.
 
+###### **Invarianttitestaus**
+Invarianttitestauksella testataan testissä test_suggest_random_words, että saadut ehdotukset ovat oikeasti sanakirjan sanoja. Testi luo random generoituja sanoja ja sanat syötetään suggest metodiin. Saadut ehdotukset verrataan sanakirjan sanoihin.
+
 
 
 ###### **Testikattavuusreportti**
 
 Name                           Stmts   Miss Branch BrPart  Cover   Missing
-
-\--------------------------------------------------------------------------
-
-src\\distance.py                   12      0     10      0   100%
-
-src\\spellcheck.py                 19      0      6      0   100%
-
-src\\tests\\\_\_init\_\_.py              0      0      0      0   100%
-
-src\\tests\\spellcheck\_test.py      20      0      0      0   100%
-
-src\\tests\\trie\_test.py            34      0      0      0   100%
-
-src\\trie.py                       35      0     16      0   100%
-
-\--------------------------------------------------------------------------
-
-TOTAL                            120      0     32      0   100%
-
+--------------------------------------------------------------------------
+src\distance.py                   13      0     10      0   100%
+src\spellcheck.py                 24      4      8      0    81%   17-20
+src\tests\__init__.py              0      0      0      0   100%
+src\tests\spellcheck_test.py      29      1      2      1    94%   35
+src\tests\trie_test.py            34      0      0      0   100%
+src\trie.py                       35      0     16      0   100%
+--------------------------------------------------------------------------
+TOTAL                            135      5     36      1    95%

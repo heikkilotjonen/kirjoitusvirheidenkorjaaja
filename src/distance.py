@@ -19,3 +19,6 @@ def dl_distance(word1, word2):
 
     # Palauta muokkausetäisyys
     return dp[len(word1)][len(word2)]
+
+
+print(dl_distance('k', 'kissa'))  # 0

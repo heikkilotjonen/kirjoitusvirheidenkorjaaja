@@ -1,4 +1,6 @@
 import unittest
+import hypothesis.strategies as st
+from hypothesis import given, settings, example
 from spellcheck import SpellChecker
 
 
@@ -23,3 +25,11 @@ class TestSpellChecker(unittest.TestCase):
         suggestions = self.spell_checker.suggest('tseti')
         self.assertIn('testi', suggestions)
         self.assertNotIn('sana', suggestions)
+
+    @given(st.text(min_size=1, max_size=5))
+    @settings(max_examples=100)
+    def test_suggest_random_words(self, random_word):
+        self.spell_checker.load_dictionary(['testi', 'sana', 'kissa', 'koira'])
+        suggestions = self.spell_checker.suggest(random_word)
+        for suggestion in suggestions:
+            self.assertTrue(self.spell_checker.is_correct(suggestion))
