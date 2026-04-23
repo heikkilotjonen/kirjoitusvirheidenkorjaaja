@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request, flash, redirect, url_for
 from spellcheck import SpellChecker
 
@@ -9,7 +10,7 @@ spell_checker = SpellChecker()
 spell_checker.load_dictionary(
     ['testi', 'testit', 'sana', 'kissa', 'kissan', 'kissat', 'koira'])
 spell_checker.load_dictionary_from_file(
-    'sanakirja\\kaikkisanat.txt')  # Lataa sanalista tiedostosta
+    os.path.join(os.path.dirname(__file__), 'sanakirja', 'kaikkisanat.txt'))  # Lataa sanalista tiedostosta
 
 
 @app.route('/')
