@@ -16,9 +16,12 @@ def dl_distance(word1, word2):
             else:
                 dp[i][j] = 1 + min(dp[i - 1][j], dp[i]
                                    [j - 1], dp[i - 1][j - 1])
+            if (
+                i > 1 and j > 1
+                and word1[i - 1] == word2[j - 2]
+                and word1[i - 2] == word2[j - 1]
+            ):
+                dp[i][j] = min(dp[i][j], dp[i - 2][j - 2] + 1)
 
     # Palauta muokkausetäisyys
     return dp[len(word1)][len(word2)]
-
-
-print(dl_distance('k', 'kissa'))  # 0

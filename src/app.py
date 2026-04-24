@@ -10,7 +10,8 @@ spell_checker = SpellChecker()
 spell_checker.load_dictionary(
     ['testi', 'testit', 'sana', 'kissa', 'kissan', 'kissat', 'koira'])
 spell_checker.load_dictionary_from_file(
-    os.path.join(os.path.dirname(__file__), 'sanakirja', 'kaikkisanat.txt'))  # Lataa sanalista tiedostosta
+    # Lataa sanalista tiedostosta
+    os.path.join(os.path.dirname(__file__), 'sanakirja', 'kaikkisanat.txt'))
 
 
 @app.route('/')
@@ -34,9 +35,9 @@ def spellcheck():
 
     for word in text:
         if not spell_checker.is_correct(word):
-            flash(f'Sana "{word}" on väärin kirjoitettu.')
             suggestions = spell_checker.suggest(word)
             if suggestions:
+                flash(f'Sana "{word}" on väärin kirjoitettu.')
                 flash(
                     f'Ehdotuksia sanalle "{word}": ' + ', '.join(suggestions))
         else:
