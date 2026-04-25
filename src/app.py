@@ -37,7 +37,7 @@ def spellcheck():
         if not spell_checker.is_correct(word):
             suggestions = spell_checker.suggest(word)
             if suggestions:
-                flash(f'Sana "{word}" on väärin kirjoitettu.')
+                flash(f'Sana "{word}" on mahdollisesti väärin kirjoitettu.')
                 flash(
                     f'Ehdotuksia sanalle "{word}": ' + ', '.join(suggestions))
         else:
