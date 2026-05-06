@@ -22,9 +22,10 @@ def index():
 @app.route('/spellcheck', methods=["POST"])
 def spellcheck():
     # Sanoja vertaillaan pienillä kirjaimilla helppottakseen vertailua
-    text = request.form.get('text').strip().lower()
+    submitted_text = request.form.get('text').strip()
+    text = submitted_text.lower()
     # Tallennetaan alkuperäinen teksti flash-viestejä varten
-    original_text = text
+    original_text = submitted_text
     # Jaetaan teksti sanoiksi
     text = text.split()
     if not text:
@@ -35,9 +36,9 @@ def spellcheck():
 
     for word in text:
         if not spell_checker.is_correct(word):
+            flash(f'Sana "{word}" on mahdollisesti väärin kirjoitettu.')
             suggestions = spell_checker.suggest(word)
             if suggestions:
-                flash(f'Sana "{word}" on mahdollisesti väärin kirjoitettu.')
                 flash(
                     f'Ehdotuksia sanalle "{word}": ' + ', '.join(suggestions))
         else:

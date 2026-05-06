@@ -3,6 +3,9 @@
 ## Yleisrakenne
 Työ on Pythonilla tehty kirjotusvirheidenkorjaaja. Ohjelma käyttää Trie tietorakennetta säilömään sanakirjan. Käyttäjä syöttää sanoja, ja ohjelma tarkistaa ovatko sanat sanakirjassa. Jos sana ei ole, ohjelma etsii onko sanakirjassa sanoja jotka ovat lähellä väärinkirjoitettua sanaa. Damerau-Levenshtein etäisyyttä käytetään laskemaan väärinkirjoitetun sanan etäisyys oikeaan sanaan.
 
+## Aikavaativuus
+Teoreettinen pahimman tapauksen aikavaativuus on O(N*L^2), jossa N on sanakirjan sanojen määrä ja L on sanojen keskimääräinen pituus.
+
 ## Laajojen kielimallien käyttö
 Käytin Claude Sonnettia ennen työn aloitusta hahmottamaan ohjelman mahdollisen yleisrakenteen. Koodaamisessa käytin apuna vscoden agenttia.
 
