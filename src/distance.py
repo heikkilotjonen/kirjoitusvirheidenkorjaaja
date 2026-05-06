@@ -11,11 +11,12 @@ def dl_distance(word1, word2):
     # Täytä taulukko dynaamisella ohjelmoinnilla
     for i in range(1, len(word1) + 1):
         for j in range(1, len(word2) + 1):
-            if word1[i - 1] == word2[j - 1]:
+            if word1[i - 1] == word2[j - 1]:    # Jos merkit ovat samat, etäisyys ei kasva
                 dp[i][j] = dp[i - 1][j - 1]
-            else:
+            else:                               # Etäisyys kasvaa yhdellä
                 dp[i][j] = 1 + min(dp[i - 1][j], dp[i]
                                    [j - 1], dp[i - 1][j - 1])
+            # Jos transpositio on mahdollinen etäisyys pienenee yhdellä
             if (
                 i > 1 and j > 1
                 and word1[i - 1] == word2[j - 2]

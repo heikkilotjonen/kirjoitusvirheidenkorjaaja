@@ -14,12 +14,12 @@ class TestSpellChecker(unittest.TestCase):
         self.assertTrue(self.spell_checker.is_correct('sana'))
         self.assertTrue(self.spell_checker.is_correct('kissa'))
         self.assertTrue(self.spell_checker.is_correct('koira'))
-    
+
     def test_load_dictionary_from_file(self):
         # Oletetaan, että sanalista on tallennettu tiedostoon 'test_sanalista.txt'
         with open('test_sanalista.txt', 'w', encoding='utf-8') as file:
             file.write('testi\nsana\nkissa\nkoira\n')
-        
+
         self.spell_checker.load_dictionary_from_file('test_sanalista.txt')
         self.assertTrue(self.spell_checker.is_correct('testi'))
         self.assertTrue(self.spell_checker.is_correct('sana'))
@@ -27,8 +27,12 @@ class TestSpellChecker(unittest.TestCase):
         self.assertTrue(self.spell_checker.is_correct('koira'))
 
     def test_is_correct(self):
-        self.spell_checker.load_dictionary(['testi'])
+        self.spell_checker.load_dictionary(
+            ['testi', 'testit', 'sana', 'kissa', 'koira', 'viisas', 'opiskelija'])
         self.assertTrue(self.spell_checker.is_correct('testi'))
+        self.assertTrue(self.spell_checker.is_correct('testit'))
+        self.assertTrue(self.spell_checker.is_correct('sana'))
+        self.assertFalse(self.spell_checker.is_correct('sanas'))
         self.assertFalse(self.spell_checker.is_correct('tseti'))
 
     def test_suggest(self):
