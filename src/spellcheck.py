@@ -25,7 +25,7 @@ class SpellChecker:
     def suggest(self, word, max_suggestions=5):
         # Haetaan kaikki sanat Triesta, joiden edit distance on enintään 2
         suggestions = self.trie.find_similar_words(word, max_distance=2)
-        
+
         # Järjestetään ehdotukset etäisyyden mukaan
         suggestions.sort(key=lambda x: x[1])
         # Palautetaan vain parhaat ehdotukset
