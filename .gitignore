@@ -6,3 +6,4 @@ __pycache__/
 generoi.py
 .coverage
 .hypothesis
+htmlcov/

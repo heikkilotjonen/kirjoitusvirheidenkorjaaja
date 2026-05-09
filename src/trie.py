@@ -45,7 +45,7 @@ class Trie:
         if estimated_dist > max_distance:
             return
 
-        # Jos tämä on validi sana, laske tarkka etäisyys
+        # Jos tämä on sana, tarkka etäisyys lasketaan
         if node.is_word:
             actual_dist = dl_distance(target_word, prefix)
             if actual_dist <= max_distance:

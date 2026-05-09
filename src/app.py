@@ -6,9 +6,6 @@ app = Flask(__name__)
 # Tarvitaan flash-viestien käyttöön
 app.secret_key = 'salainen'
 spell_checker = SpellChecker()
-# SpellChecker-luokkaan ladataan sanoja tarkistusta varten
-spell_checker.load_dictionary(
-    ['testi', 'testit', 'sana', 'kissa', 'kissan', 'kissat', 'koira'])
 spell_checker.load_dictionary_from_file(
     # Lataa sanalista tiedostosta
     os.path.join(os.path.dirname(__file__), 'sanakirja', 'kaikkisanat.txt'))
