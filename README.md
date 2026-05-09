@@ -2,8 +2,9 @@
 Aineopintojen harjoitustyö: Algoritmit ja tekoäly -kurssiin tehty kirjoitusvirheidenkorjaaja. Sanakirja on tällä hetkellä puutteellinen.
 
 ## Dokumentaatio
-[Testausdokumentti] (https://github.com/heikkilotjonen/kirjoitusvirheidenkorjaaja/blob/main/dokumentaatio/testausdokumentti.md)
-[Totetutusdokumentti] (https://github.com/heikkilotjonen/kirjoitusvirheidenkorjaaja/blob/main/dokumentaatio/toteutusdokumentti.md)
+[Testausdokumentti](https://github.com/heikkilotjonen/kirjoitusvirheidenkorjaaja/blob/main/dokumentaatio/testausdokumentti.md)
+
+[Totetutusdokumentti](https://github.com/heikkilotjonen/kirjoitusvirheidenkorjaaja/blob/main/dokumentaatio/toteutusdokumentti.md)
 
 ## Käynnistysohjeet
 Lataa projektin riippuvuudet komennolla poetry install
