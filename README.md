@@ -8,6 +8,8 @@ Aineopintojen harjoitustyö: Algoritmit ja tekoäly -kurssiin tehty kirjoitusvir
 
 [Määrittelydokumentti](https://github.com/heikkilotjonen/kirjoitusvirheidenkorjaaja/blob/main/dokumentaatio/m%C3%A4%C3%A4rittelydokumentti.md)
 
+[Käyttöohje](https://github.com/heikkilotjonen/kirjoitusvirheidenkorjaaja/blob/main/dokumentaatio/k%C3%A4ytt%C3%B6ohje.md)
+
 ## Käynnistysohjeet
 Lataa projektin riippuvuudet komennolla 
 ```bash
